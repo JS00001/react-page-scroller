@@ -35,19 +35,19 @@ let isBodyScrollEnabled = true;
 let isTransitionAfterComponentsToRenderChanged = false;
 
 export const ReactPageScroller = ({
-  animationTimer,
-  animationTimerBuffer,
-  blockScrollDown,
-  blockScrollUp,
+  animationTimer = DEFAULT_ANIMATION_TIMER,
+  animationTimerBuffer = DEFAULT_ANIMATION_TIMER_BUFFER,
+  blockScrollDown = false,
+  blockScrollUp = false,
   children,
-  containerHeight,
-  containerWidth,
+  containerHeight = DEFAULT_CONTAINER_HEIGHT,
+  containerWidth = DEFAULT_CONTAINER_WIDTH,
   customPageNumber,
   handleScrollUnavailable,
   onBeforePageScroll,
   pageOnChange,
   renderAllPagesOnFirstRender,
-  transitionTimingFunction,
+  transitionTimingFunction = DEFAULT_ANIMATION,
 }) => {
   const [componentIndex, setComponentIndex] = useState(DEFAULT_COMPONENT_INDEX);
   const [componentsToRenderLength, setComponentsToRenderLength] = useState(
@@ -396,12 +396,4 @@ ReactPageScroller.propTypes = {
   transitionTimingFunction: PropTypes.string,
 };
 
-ReactPageScroller.defaultProps = {
-  animationTimer: DEFAULT_ANIMATION_TIMER,
-  animationTimerBuffer: DEFAULT_ANIMATION_TIMER_BUFFER,
-  transitionTimingFunction: DEFAULT_ANIMATION,
-  containerHeight: DEFAULT_CONTAINER_HEIGHT,
-  containerWidth: DEFAULT_CONTAINER_WIDTH,
-  blockScrollUp: false,
-  blockScrollDown: false,
-};
+
